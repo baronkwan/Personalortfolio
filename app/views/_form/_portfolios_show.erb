@@ -1,0 +1,29 @@
+<table id="showPortfolio" class="table table-hover" style="list-style-type: none;">
+  <thead class="thead-inverse">
+    <tr>
+      <th class="text-center">No.</th>
+      <th class="text-center">Symbol</th>
+      <th class="text-center">Price ($USD)</th>
+      <th class="text-center">Quantity</th>
+      <th class="text-center">Edit</th>
+      <th class="text-center">Remove</th>
+    </tr>
+  </thead>
+
+<% if @portfolio != nil %>
+  <% @portfolio.positions.each_with_index do |position, index| %>
+
+  <tr>
+    <td><%= index + 1 %></td>
+    <td><%= Stock.find(position.stock_id).symbol %></td>
+    <td>$<%= position.price %></td>
+    <td><%= position.quantity %></td>
+    <td><a class="editPosition" href="/positions/<%= position.id %>" method="put">Edit</a></td>
+    <td><a class="removePosition" href="/positions/<%= position.id %>" method="delete">Remove</a></td>
+  </tr>
+
+  <% end %>
+<% end %>
+
+</table>
+

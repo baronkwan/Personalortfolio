@@ -1,0 +1,72 @@
+<h2 style="text-align: center;">Stock Quotes</h2>
+<div id="testing-field" class="main" style="text-align: center; clear: both;">
+
+  <!-- Import Select2 with symbol options -->
+  <br>
+  <form id="lookup" action="/getQuote" method="get">
+    <label for="symbol"></label>
+    <input type="text" name="symbol" placeholder="Symbol">
+    <input type="submit" value="Search">
+  </form>
+  <br>
+
+  <fieldset style="border: 1px black solid">
+    <ul style="list-style-type: none;">
+
+      <h3 id="error" class="hidden"></h3>
+      <h3 id="">Company Name: <span id="companyName"></span></h3>
+
+      <li>Last Price: <span id="lastPrice"></span></li>
+      <li>Open: <span id="open"></span></li>
+      <li>High: <span id="high"></span></li>
+      <li>Low: <span id="low"></span></li>
+    </ul>
+  </fieldset>
+</div>
+
+<div id="Personal-stock-list" class="sidebar" style="text-align: center;">
+
+    <h4><a id="createPortfolio" href="/portfolios/new">Create New Portfolio</a></h4>
+
+    <%= erb :'_form/_portfolios_new', layout: false %>
+
+
+    <h4><a id="addPosition" href="/positions/new">Add Position to Portfolio</a></h4>
+
+    <%= erb :'_form/_positions_new', layout: false %>
+
+
+  <fieldset id="selectPortfolio" style="border: 1px black solid">
+    <h4>Choose a portfolio to view</h4>
+
+    <form id="pickPortfolio" action="/portfolios/:id" method="get">
+      <Select name="portfolio_name">
+      
+        <% @user.portfolios.each do |portfolio| %>
+
+          <option value="<%= portfolio.name %>"><%= portfolio.name %></option>
+
+        <% end %>
+
+      </Select><br>
+
+      <input type="submit" value="Show">
+    </form>
+    
+    <%= erb :'_form/_portfolios_show', layout: false %>
+
+  </fieldset>
+</div>
+
+<!-- <div id="corresponding-feeds" class="sidebar right" style="text-align: center;">
+<fieldset style="border: 1px black solid">
+<h4><a href="#">Corresponding Feeds</a></h4>
+  <ul style="list-style-type: none;">
+    <li><a href="#">News 1</a></li>
+    <li><a href="#">News 2</a></li>
+    <li><a href="#">News 3</a></li>
+    <li><a href="#">News 4</a></li>
+  </ul>
+</fieldset> -->
+</div>
+</div>

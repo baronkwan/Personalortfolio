@@ -1,0 +1,19 @@
+<form id="addToProfolio" class="hidden" action="/positions" method="post">
+  <Select name="portfolio_name">
+    
+    <% @user.portfolios.each do |portfolio| %>
+
+    <option value="<%= portfolio.name %>"><%= portfolio.name %></option>
+
+    <% end %>
+
+  </Select><br>
+  
+  <label for="symbol">Symbol: </label>
+  <input type="text" name="symbol" placeholder="Symbol">
+  <label for="quantity">Quantity: </label>
+  <input type="text" name="quantity" placeholder="quanity">
+  <label for="price">Price: </label>
+  <input type="text" name="price" placeholder="price">
+  <input type="submit" value="Add">
+</form>
