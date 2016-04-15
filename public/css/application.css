@@ -67,4 +67,12 @@ body {
   font-family: 'Vollkorn', serif;  
 }
 
-/********** table **********/
+/********** First page **********/
+
+h2#logo {
+  margin-top: 100px;
+  text-align: center;
+  /*height: 50px;
+  width: 50px;*/
+}
+
