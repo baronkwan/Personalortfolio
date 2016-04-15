@@ -2,6 +2,8 @@ source 'https://rubygems.org'
 
 gem 'dotenv-rails', :groups => [:development, :test]
 
+gem 'pg'
+
 # Sinatra driver
 gem 'sinatra'
 gem 'sinatra-contrib'
@@ -32,4 +34,5 @@ group :production do
   # PostgreSQL driver
   gem 'pg'
   gem 'rails_12factor'
+  gem 'rake'
 end
