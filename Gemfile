@@ -1,8 +1,6 @@
 source 'https://rubygems.org'
 
 gem 'dotenv-rails', :groups => [:development, :test]
-# PostgreSQL driver
-gem 'pg'
 
 # Sinatra driver
 gem 'sinatra'
@@ -28,4 +26,10 @@ gem 'httparty'
 group :test do
   gem 'faker'
   gem 'rspec'
+end
+
+group :production do
+  # PostgreSQL driver
+  gem 'pg'
+  gem 'rails_12factor'
 end
