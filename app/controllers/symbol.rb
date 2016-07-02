@@ -3,6 +3,7 @@ get '/getQuote' do
   # Set up ENV variable to protect the API key
   symbol = params[:symbol]
   APILINK = "http://marketdata.websol.barchart.com/getQuote.json?key=" + ENV['MARKETDATA_API'] +"&symbols="
+  
   queryLink = APILINK + symbol
   # render the page with symbol and turn data to JSON and send data back by AJAX
   quoteInfo = HTTParty.get(queryLink)
