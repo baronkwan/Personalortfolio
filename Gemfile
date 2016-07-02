@@ -26,6 +26,7 @@ gem 'table_print'
 gem 'json'
 gem 'httparty'
 gem 'rspec'
+gem 'faker'
 
 group :test do
   gem 'faker'
